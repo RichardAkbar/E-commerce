@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Airist",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 7.33, "left": -189.33, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -0.63,
+      "left": -307.46,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 45.05,
+      "left": -308.34,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 34.45,
+      "left": -254.91,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 60.71,
+      "left": -253.24,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "board-ssd1306", "id": "oled1", "top": 121.55, "left": -28.37, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 182.51, "left": -325.34, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -50.19, "left": -2.19, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led2:A", "r2:1", "blue", [ "v0" ] ],
+    [ "led1:A", "r1:1", "yellow", [ "v4.12", "h20.63" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "h0" ] ],
+    [ "esp:GND.2", "led1:C", "black", [ "h-125.11", "v-108.46", "h13.49" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-47.53", "h-45.75", "v94.3" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-56.68", "h-67.16", "v85.86" ] ],
+    [ "oled1:SCL", "esp:D22", "gold", [ "v0" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "v-71.27", "h-126.56" ] ],
+    [ "esp:D26", "servo1:PWM", "orange", [ "h-168.44", "v95.35" ] ],
+    [ "esp:GND.2", "servo1:GND", "black", [ "h-125.27", "v39.91", "h-61.77", "v42.42" ] ],
+    [ "esp:VIN", "servo1:V+", "red", [ "h-111.13", "v42.31", "h-90.8", "v46.14" ] ],
+    [ "r1:2", "esp:D27", "yellow", [ "v0" ] ],
+    [ "r2:2", "esp:D13", "green", [ "v0" ] ],
+    [ "rtc1:5V", "esp:3V3", "red", [ "h-69.61", "v160.14" ] ],
+    [ "rtc1:SDA", "esp:D21", "purple", [ "h-59.63", "v81.51" ] ],
+    [ "rtc1:GND", "esp:GND.1", "black", [ "h-43.95", "v168" ] ],
+    [ "esp:D22", "rtc1:SCL", "yellow", [ "h67.06", "v-38.22" ] ]
+  ],
+  "dependencies": {}
+}
