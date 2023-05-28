@@ -25,9 +25,9 @@ html {
 
 .li-navbar {
     list-style-type: square;
-    padding: 20px;
+    padding: 40px;
     margin: 5px;
-    color: blue;
+    color: red;
     font-size: 30px;
 } 
 
